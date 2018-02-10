@@ -15,8 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/admin-panel', function () {
-    return view('admin.home.home');
+    return view('admin.authors.index');
+});
+
+Route::get('/list', function () {
+    return view('admin.authors.index');
 });
 
 Auth::routes();
