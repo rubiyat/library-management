@@ -17,12 +17,19 @@ Route::get('/', function () {
 
 
 
-Route::get('/admin-panel', function () {
-    return view('admin.authors.index');
-});
+Route::post('/authors/add', [
+    'uses' => 'AuthorController@addNew',
+    'as' => 'add-author'
+]);
+
+
 
 Route::get('/list', function () {
     return view('admin.authors.index');
+});
+
+Route::get('/create', function () {
+    return view('admin.authors.create');
 });
 
 Auth::routes();
