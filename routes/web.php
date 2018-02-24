@@ -16,21 +16,23 @@ Route::get('/', function () {
 });
 
 
+//
+//Route::post('/authors/add', [
+//    'uses' => 'AuthorController@addNew',
+//    'as' => 'add-author'
+//]);
+//
+//
+//
+//Route::get('/list', function () {
+//    return view('admin.authors.index');
+//});
+//
+//Route::get('/create', function () {
+//    return view('admin.authors.create');
+//});
 
-Route::post('/authors/add', [
-    'uses' => 'AuthorController@addNew',
-    'as' => 'add-author'
-]);
-
-
-
-Route::get('/list', function () {
-    return view('admin.authors.index');
-});
-
-Route::get('/create', function () {
-    return view('admin.authors.create');
-});
+Route::resource('author', 'AuthorController');
 
 Auth::routes();
 

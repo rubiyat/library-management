@@ -26,37 +26,36 @@
                         <tr class="bg-danger">
                             <td class="text-danger"><h4><b>Role</b></h4></td>
                             <td width="50%"></td>
-                            <td ></td>
                             <td class="text-right">
-                                <button type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </button>
-                                <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Add New Role</button>
+                                <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
+                                <a class="btn btn-primary" href="{{ route('author.create') }}" data-toggle="tooltip" data-placement="bottom" title="Add New"><i class="glyphicon glyphicon-plus"></i> Add New Role</a>
                             </td>
                         </tr>
                         <tr class="bg-primary">
                             <th>#</th>
                             <th>Roll Name</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
-                        {{--@php($i=1)--}}
-                        {{--@foreach($categories as $category)--}}
-                            <tr>
-                                <td>#</td>
-                                <td>Roll Name</td>
-                                <td class="blo">Status</td>
+
+                        @php($i=1)
+                        @foreach($authors as $author)
+                            <tr class="bg-secondary">
+                                <th>{{ $i++ }}</th>
+                                <th>{{ $author->name }}</th>
+
                                 <td>
-                                    <a href="" class="btn btn-success btn-xs">
+                                    <a href="" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </a>
-                                    <a href="" class="btn btn-success btn-xs">
+                                    <a href="" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </a>
-                                    <a href="" class="btn btn-danger btn-xs">
+                                    <a href="" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </a>
                                 </td>
                             </tr>
-                        {{--@endforeach--}}
+                        @endforeach
                     </table>
                 </div>
             </div>

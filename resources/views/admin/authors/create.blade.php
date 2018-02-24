@@ -34,7 +34,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <form action="{{ route('add-author') }}" method="POST" class="form-horizontal">
+                                <form action="" method="POST" class="form-horizontal">
                                     {{ csrf_field() }}
                                     <br/>
                                     <div class="container-fluid">
