@@ -7,7 +7,7 @@
 
 @section('path')
     <div class="col-lg-12">
-        <h1 class="page-header">Add Authors</h1>
+        <h1 class="page-header">Create Author</h1>
     </div>
 
 
@@ -34,7 +34,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <form action="{{ route('author.store') }}" method="POST" class="form-horizontal">
+                                <form action="{{ route('author.index') }}" method="POST" class="form-horizontal">
                                     {{ csrf_field() }}
                                     <br/>
                                     <div class="container-fluid">
