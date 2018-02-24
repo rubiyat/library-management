@@ -46,15 +46,22 @@
                                 <th>{{ $author->name }}</th>
 
                                 <td>
-                                    <a href="{{ route('author.show', ['id' => $author->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </a>
-                                    <a href="{{ route('author.edit', ['id' => $author->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </a>
-                                    <a href="" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
+                                    <form method="POST" action="{{ route('author.destroy', ['id' => $author->id]) }}">
+                                        <a href="{{ route('author.show', ['id' => $author->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
+                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                        </a>
+                                        <a href="{{ route('author.edit', ['id' => $author->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </a>
+
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button  class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </form>
+
+
                                 </td>
                             </tr>
                         @endforeach
