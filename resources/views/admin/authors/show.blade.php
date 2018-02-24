@@ -22,7 +22,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 class="text-center text-success">{{ Session::get('message') }}</h3>
+                    @include('admin.includes.message')
                     <br/>
                     <table class="table ">
                         <tr class="bg-danger">

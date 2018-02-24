@@ -36,6 +36,12 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate(request(), [
+            'name' => 'required'
+        ]);
+
+
         $author = new Author();
         $author->name = $request -> name;
         $author->save();
@@ -75,6 +81,9 @@ class AuthorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(request(), [
+            'name' => 'required'
+        ]);
         $author = Author::find($id);
         $author->name = $request->name;
         $author->update();
