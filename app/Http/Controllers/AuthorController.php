@@ -50,7 +50,8 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        //
+        $author = Author::find($id);
+        return view('admin.authors.show', ['author' => $author ]);
     }
 
     /**

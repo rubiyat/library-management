@@ -44,7 +44,7 @@
                                 <th>{{ $author->name }}</th>
 
                                 <td>
-                                    <a href="" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
+                                    <a href="{{ route('author.show', ['id' => $author->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </a>
                                     <a href="" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
