@@ -29,12 +29,12 @@
                             <td class="text-danger" width="75%"><h4><b>Author Update</b></h4></td>
 
                             <td class="text-right">
-                                <a class="btn btn-danger" href="{{ route('author.index') }}"><i class="glyphicon glyphicon-backward"></i> Cancel </a>
+                                <a class="btn btn-danger" href="{{ route('authors.index') }}"><i class="glyphicon glyphicon-backward"></i> Cancel </a>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <form action="{{ route('author.update', ['id' => $author->id]) }}" method="POST" class="form-horizontal">
+                                <form action="{{ route('authors.update', ['id' => $author->id]) }}" method="POST" class="form-horizontal">
                                     {{ csrf_field() }}
                                     <input name="_method" type="hidden" value="PUT">
                                     <br/>

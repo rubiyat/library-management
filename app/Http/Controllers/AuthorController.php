@@ -45,7 +45,7 @@ class AuthorController extends Controller
         $author = new Author();
         $author->name = $request -> name;
         $author->save();
-        return redirect('author/create') -> with( 'message', 'Added Successfully');
+        return redirect(route('authors.create')) -> with( 'message', 'Added Successfully');
     }
 
     /**
@@ -87,7 +87,7 @@ class AuthorController extends Controller
         $author = Author::find($id);
         $author->name = $request->name;
         $author->update();
-        return redirect('author') -> with( 'message', 'Updated Successfully');
+        return redirect(route('authors.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**
@@ -100,7 +100,7 @@ class AuthorController extends Controller
     {
         $author = Author::find($id);
         $author->delete();
-        return redirect('author') -> with( 'message', 'Deleted Successfully');
+        return redirect(route('authors.index')) -> with( 'message', 'Deleted Successfully');
     }
 
 }

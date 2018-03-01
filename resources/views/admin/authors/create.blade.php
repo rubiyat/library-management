@@ -29,12 +29,12 @@
                             <td class="text-danger" width="75%"><h4><b>Role</b></h4></td>
 
                             <td class="text-right">
-                                <a class="btn btn-danger" href="{{ route('author.index') }}"><i class="glyphicon glyphicon-backward"></i> Cancel </a>
+                                <a class="btn btn-danger" href="{{ route('authors.index') }}"><i class="glyphicon glyphicon-backward"></i> Cancel </a>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <form action="{{ route('author.index') }}" method="POST" class="form-horizontal">
+                                <form action="{{ route('authors.index') }}" method="POST" class="form-horizontal">
                                     {{ csrf_field() }}
                                     <br/>
                                     <div class="container-fluid">

@@ -15,25 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//
-//Route::post('/authors/add', [
-//    'uses' => 'AuthorController@addNew',
-//    'as' => 'add-author'
-//]);
-//
-//
-//
-//Route::get('/list', function () {
-//    return view('admin.authors.index');
-//});
-//
-//Route::get('/create', function () {
-//    return view('admin.authors.create');
-//});
-
-Route::resource('author', 'AuthorController');
+//Route::resource('author', 'AuthorController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/admin/authors', 'AuthorController')->middleware('auth');
+
+Route::get('/admin', 'AuthorController@index')->name('admin')->middleware('auth');

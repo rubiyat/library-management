@@ -30,7 +30,7 @@
                             <td width="50%"></td>
                             <td class="text-right">
                                 <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
-                                <a class="btn btn-primary" href="{{ route('author.create') }}" data-toggle="tooltip" data-placement="bottom" title="Add New"><i class="glyphicon glyphicon-plus"></i> Add New Role</a>
+                                <a class="btn btn-primary" href="{{ route('authors.create') }}" data-toggle="tooltip" data-placement="bottom" title="Add New"><i class="glyphicon glyphicon-plus"></i> Add New Role</a>
                             </td>
                         </tr>
                         <tr class="bg-primary">
@@ -46,11 +46,11 @@
                                 <th>{{ $author->name }}</th>
 
                                 <td>
-                                    <form method="POST" action="{{ route('author.destroy', ['id' => $author->id]) }}">
-                                        <a href="{{ route('author.show', ['id' => $author->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
+                                    <form method="POST" action="{{ route('authors.destroy', ['id' => $author->id]) }}">
+                                        <a href="{{ route('authors.show', ['id' => $author->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
                                             <span class="glyphicon glyphicon-eye-open"></span>
                                         </a>
-                                        <a href="{{ route('author.edit', ['id' => $author->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                        <a href="{{ route('authors.edit', ['id' => $author->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </a>
 
