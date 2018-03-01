@@ -65,7 +65,7 @@ class PublisherController extends Controller
      */
     public function edit(Publisher $publisher)
     {
-        //
+        return view('admin.publishers.edit', ['publisher' => $publisher ]);
     }
 
     /**
@@ -77,7 +77,12 @@ class PublisherController extends Controller
      */
     public function update(Request $request, Publisher $publisher)
     {
-        //
+        $publisher->name = $request -> name;
+        $publisher->address = $request -> address;
+        $publisher->phone_number = $request -> phone_number;
+        $publisher->email = $request -> email;
+        $publisher->update();
+        return redirect(route('publishers.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**

@@ -56,7 +56,7 @@
                                         <a href="{{ route('publishers.show', ['id' => $publisher->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
                                             <span class="glyphicon glyphicon-eye-open"></span>
                                         </a>
-                                        <a href="" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                        <a href="{{ route('publishers.edit', ['id' => $publisher->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </a>
 
