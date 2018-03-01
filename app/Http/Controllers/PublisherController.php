@@ -14,7 +14,8 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        //
+        $publishers = Publisher::all();
+        return view('admin.publishers.index', ['publishers'=>$publishers]);
     }
 
     /**
@@ -24,7 +25,7 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.publishers.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class PublisherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $publisher = new Publisher();
+        $publisher->name = $request -> name;
+        $publisher->address = $request -> address;
+        $publisher->phone_number = $request -> phone_number;
+        $publisher->email = $request -> email;
+        $publisher->save();
+        return redirect(route('publishers.create')) -> with( 'message', 'Added Successfully');
     }
 
     /**

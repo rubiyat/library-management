@@ -7,7 +7,7 @@
 
 @section('path')
     <div class="col-lg-12">
-        <h1 class="page-header">Author</h1>
+        <h1 class="page-header">Authors</h1>
     </div>
 
 
@@ -30,7 +30,7 @@
                             <td width="50%"></td>
                             <td class="text-right">
                                 <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
-                                <a class="btn btn-primary" href="{{ route('authors.create') }}" data-toggle="tooltip" data-placement="bottom" title="Add New"><i class="glyphicon glyphicon-plus"></i> Add New Role</a>
+                                <a class="btn btn-primary" href="{{ route('authors.create') }}" data-toggle="tooltip" data-placement="bottom" title="Add New"><i class="glyphicon glyphicon-plus"></i> Add New Author</a>
                             </td>
                         </tr>
                         <tr class="bg-primary">

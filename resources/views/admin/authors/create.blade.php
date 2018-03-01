@@ -27,7 +27,6 @@
                     <table class="table table-bordered">
                         <tr class="bg-danger">
                             <td class="text-danger" width="75%"><h4><b>Add New Author</b></h4></td>
-
                             <td class="text-right">
                                 <a class="btn btn-danger" href="{{ route('authors.index') }}"><i class="glyphicon glyphicon-backward"></i> Cancel </a>
                             </td>
