@@ -26,7 +26,7 @@
                     <br/>
                     <table class="table table-bordered">
                         <tr class="bg-danger">
-                            <td class="text-danger"><h4><b>Author</b></h4></td>
+                            <td class="text-danger"><h4><b>Authors</b></h4></td>
                             <td width="50%"></td>
                             <td class="text-right">
                                 <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
