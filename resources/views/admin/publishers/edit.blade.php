@@ -48,15 +48,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea name="address" class="form-control" required>
-{{  $publisher->address }}
-                                                </textarea>
+                                                <textarea name="address" class="form-control">{{  $publisher->address }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Phone Number</label>
-                                                <input type="text" name="phone_number" class="form-control" value="{{ $publisher->phone_number }}" required>
+                                                <input type="text" name="phone_number" class="form-control" value="{{ $publisher->phone_number }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12">

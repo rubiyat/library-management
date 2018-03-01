@@ -36,6 +36,7 @@ class PublisherController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validation($request);
 
         $publisher = new Publisher();
         $publisher->name = $request -> name;
@@ -77,6 +78,8 @@ class PublisherController extends Controller
      */
     public function update(Request $request, Publisher $publisher)
     {
+        $this->validation($request);
+
         $publisher->name = $request -> name;
         $publisher->address = $request -> address;
         $publisher->phone_number = $request -> phone_number;
@@ -95,5 +98,15 @@ class PublisherController extends Controller
     {
         $publisher->delete();
         return redirect(route('publishers.index')) -> with( 'message', 'Deleted Successfully');
+    }
+
+    public function validation(Request $request)
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'address' => 'nullable'
+        ]);
     }
 }
