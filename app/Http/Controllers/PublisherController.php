@@ -93,6 +93,7 @@ class PublisherController extends Controller
      */
     public function destroy(Publisher $publisher)
     {
-        //
+        $publisher->delete();
+        return redirect(route('publishers.index')) -> with( 'message', 'Deleted Successfully');
     }
 }

@@ -78,12 +78,11 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Author $author)
     {
         $this->validate(request(), [
             'name' => 'required'
         ]);
-        $author = Author::find($id);
         $author->name = $request->name;
         $author->update();
         return redirect(route('authors.index')) -> with( 'message', 'Updated Successfully');
@@ -95,9 +94,8 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Author $author)
     {
-        $author = Author::find($id);
         $author->delete();
         return redirect(route('authors.index')) -> with( 'message', 'Deleted Successfully');
     }

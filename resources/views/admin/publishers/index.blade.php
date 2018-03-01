@@ -52,7 +52,7 @@
                                 <td>{{ $publisher->phone_number }}</td>
                                 <td>{{ $publisher->email }}</td>
                                 <td>
-                                    <form method="POST" action="">
+                                    <form method="POST" action="{{ route('publishers.destroy', ['id' => $publisher->id]) }}">
                                         <a href="{{ route('publishers.show', ['id' => $publisher->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
                                             <span class="glyphicon glyphicon-eye-open"></span>
                                         </a>
