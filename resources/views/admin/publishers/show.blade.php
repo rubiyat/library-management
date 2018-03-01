@@ -7,7 +7,7 @@
 
 @section('path')
     <div class="col-lg-12">
-        <h1 class="page-header">Author Details</h1>
+        <h1 class="page-header">Publisher Details</h1>
     </div>
 
 
@@ -26,22 +26,29 @@
                     <br/>
                     <table class="table ">
                         <tr class="bg-danger">
-                            <td width="75%" class="text-danger font-weight-bold"><h4><b>Author Details</b></h4></td>
+                            <td width="50%" class="text-danger font-weight-bold"><h4><b>Publisher Details</b></h4></td>
                             <td class="text-right">
                                 <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
-                                <a class="btn btn-danger" href="{{ route('authors.index') }}" data-toggle="tooltip" data-placement="bottom" title="Go To Index"><i class="glyphicon glyphicon-backward"></i> Go To Index</a>
+                                <a class="btn btn-danger" href="{{ route('publishers.index') }}" data-toggle="tooltip" data-placement="bottom" title="Go To Index"><i class="glyphicon glyphicon-backward"></i> Go To Index</a>
                             </td>
                         </tr>
                         <tr class="bg-secondary">
-                            <th height="75">{{ $author->name }}</th>
+                            <th height="75">{{ $publisher->name }}</th>
                             <td> </td>
-
+                        </tr>
+                        <tr class="bg-secondary">
+                            <td>{{ $publisher->address }}</td>
+                            <td></td>
+                        </tr>
+                        <tr class="bg-secondary">
+                            <td>{{ $publisher->phone_number }}</td>
+                            <td>{{ $publisher->email }}</td>
                         </tr>
                         <tr class="bg-secondary">
                             <th></th>
                             <td class="text-right">
-                                <form method="POST" action="{{ route('authors.destroy', ['id' => $author->id]) }}">
-                                    <a href="{{ route('authors.edit', ['id' => $author->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                <form method="POST" action="{{ route('publishers.destroy', ['id' => $publisher->id]) }}">
+                                    <a href="{{ route('publishers.edit', ['id' => $publisher->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </a>
                                     {{ csrf_field() }}

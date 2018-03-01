@@ -53,7 +53,7 @@
                                 <td>{{ $publisher->email }}</td>
                                 <td>
                                     <form method="POST" action="">
-                                        <a href="" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
+                                        <a href="{{ route('publishers.show', ['id' => $publisher->id]) }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="bottom" title="Show">
                                             <span class="glyphicon glyphicon-eye-open"></span>
                                         </a>
                                         <a href="" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">

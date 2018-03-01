@@ -54,9 +54,9 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Author $author)
     {
-        $author = Author::find($id);
+//        $author = Author::find($id);
         return view('admin.authors.show', ['author' => $author ]);
     }
 

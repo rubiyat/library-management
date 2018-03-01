@@ -54,7 +54,7 @@ class PublisherController extends Controller
      */
     public function show(Publisher $publisher)
     {
-        //
+        return view('admin.publishers.show', ['publisher' => $publisher ]);
     }
 
     /**
