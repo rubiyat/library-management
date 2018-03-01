@@ -17,7 +17,10 @@
             {{--</li>--}}
 
             <li>
-                <a href="{{ route('authors.index') }}"><i class="fa fa-user fa-fw"></i> Authors</a>
+                <a href="{{ route('authors.index') }}"><i class="fa fa-user-secret fa-fw"></i> Authors</a>
+            </li>
+            <li>
+                <a href="{{ route('publishers.index') }}"><i class="fa fa-user fa-fw"></i> Publishers</a>
             </li>
             {{--<li>--}}
                 {{--<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>--}}

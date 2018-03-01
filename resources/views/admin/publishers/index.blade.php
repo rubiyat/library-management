@@ -41,9 +41,10 @@
                             <th>Author Address</th>
                             <th>Author Phone Number</th>
                             <th>Author Email</th>
-                            <th>Action</th>
+                            <th width="15%">Action</th>
                         </tr>
-                        @php($i=1)
+
+                        @php($i=($publishers->currentPage()-1)*10 + 1 )
                         @foreach($publishers as $publisher)
                             <tr class="bg-secondary">
                                 <td>{{ $i++ }}</td>
@@ -70,7 +71,8 @@
                             </tr>
                         @endforeach
                     </table>
-                    {{--@include('admin.includes.errors')--}}
+                    <div class="text-center">{{ $publishers->links() }}</div>
+                    @include('admin.includes.errors')
                 </div>
             </div>
         </div>

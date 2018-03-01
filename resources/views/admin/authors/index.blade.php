@@ -39,7 +39,7 @@
                             <th>Action</th>
                         </tr>
 
-                        @php($i=1)
+                        @php($i=($authors->currentPage()-1)*10 + 1 )
                         @foreach($authors as $author)
                             <tr class="bg-secondary">
                                 <th>{{ $i++ }}</th>
@@ -66,6 +66,7 @@
                             </tr>
                         @endforeach
                     </table>
+                    <div class="text-center">{{ $authors->links() }}</div>
                     @include('admin.includes.errors')
                 </div>
             </div>
