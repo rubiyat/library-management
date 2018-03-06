@@ -37,10 +37,10 @@
                         </tr>
                         <tr class="bg-primary">
                             <th>#</th>
-                            <th>Author Name</th>
-                            <th>Author Address</th>
-                            <th>Author Phone Number</th>
-                            <th>Author Email</th>
+                            <th>Publisher Name</th>
+                            <th>Publisher Address</th>
+                            <th>Publisher Phone Number</th>
+                            <th>Publisher Email</th>
                             <th width="15%">Action</th>
                         </tr>
 
