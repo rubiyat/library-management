@@ -37,6 +37,8 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {   
+        $this->validation($request);
+
         $member = new Member();
         $member->name = $request -> name;
         $member->address = $request -> address;
@@ -82,6 +84,8 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
+        $this->validation($request);
+
         $member->name = $request -> name;
         $member->address = $request -> address;
         $member->phone_number = $request -> phone_number;
@@ -104,5 +108,18 @@ class MemberController extends Controller
     {
         $member->delete();
         return redirect(route('members.index')) -> with( 'message', 'Deleted Successfully');
+    }
+
+    public function validation(Request $request)
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'date_of_birth' => 'required',
+            'membership_fees' => 'required',
+            'occupation' => 'required',
+            'address' => 'nullable'
+        ]);
     }
 }

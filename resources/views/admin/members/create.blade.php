@@ -10,8 +10,6 @@
         <h1 class="page-header">Create Member</h1>
     </div>
 
-
-    <!-- /.col-lg-12 -->
 @endsection
 
 @section('content')
@@ -25,7 +23,6 @@
                     <table class="table table-bordered">
                         <tr class="bg-danger">
                             <td class="text-danger" width="75%"><h4><b>Add New Member</b></h4></td>
-
                             <td class="text-right">
                                 <a class="btn btn-danger" href="{{ route('members.index') }}"><i class="glyphicon glyphicon-backward"></i> Cancel </a>
                             </td>
@@ -39,7 +36,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Member Name </label>
-                                                <input type="text" name="name" class="form-control" >
+                                                <input type="text" name="name" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -51,19 +48,19 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Phone Number</label>
-                                                <input type="text" name="phone_number" class="form-control">
+                                                <input type="text" name="phone_number" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="email" name="email" class="form-control" >
+                                                <input type="email" name="email" class="form-control" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Date of Birth</label>
-                                                <input type="date" name="date_of_birth" class="form-control" >
+                                                <input type="date" name="date_of_birth" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -78,13 +75,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Membership Fees</label>
-                                                <input type="number" name="membership_fees" class="form-control" >
+                                                <input type="number" name="membership_fees" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Occupation</label>
-                                                <input type="text" name="occupation" class="form-control" >
+                                                <input type="text" name="occupation" class="form-control" required>
                                             </div>
                                         </div>
 

@@ -40,7 +40,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Member Name </label>
-                                                <input type="text" name="name" class="form-control" value="{{ $member->name }}">
+                                                <input type="text" name="name" class="form-control" value="{{ $member->name }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -52,19 +52,19 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Phone Number</label>
-                                                <input type="text" name="phone_number" class="form-control" value="{{ $member->phone_number }}">
+                                                <input type="text" name="phone_number" class="form-control" value="{{ $member->phone_number }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="email" name="email" class="form-control" value="{{ $member->email }}">
+                                                <input type="email" name="email" class="form-control" value="{{ $member->email }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Date of Birth</label>
-                                                <input type="date" name="date_of_birth" class="form-control" value="{{ $member->date_of_birth }}">
+                                                <input type="date" name="date_of_birth" class="form-control" value="{{ $member->date_of_birth }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -79,13 +79,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Membership Fees</label>
-                                                <input type="number" name="membership_fees" class="form-control" value="{{ $member->membership_fees }}">
+                                                <input type="number" name="membership_fees" class="form-control" value="{{ $member->membership_fees }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Occupation</label>
-                                                <input type="text" name="occupation" class="form-control" value="{{ $member->occupation }}">
+                                                <input type="text" name="occupation" class="form-control" value="{{ $member->occupation }}" required>
                                             </div>
                                         </div>
 
