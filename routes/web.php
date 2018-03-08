@@ -23,5 +23,6 @@ Auth::routes();
 
 Route::resource('/admin/authors', 'AuthorController')->middleware('auth');
 Route::resource('/admin/publishers', 'PublisherController')->middleware('auth');
+Route::resource('/admin/members', 'MemberController')->middleware('auth');
 
 Route::get('/admin', 'AuthorController@index')->name('admin')->middleware('auth');
