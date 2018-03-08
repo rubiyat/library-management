@@ -15,7 +15,6 @@ class AuthorController extends Controller
     public function index()
     {
         $authors = Author::paginate(10);
-//        return $authors;
         return view('admin.authors.index', ['authors'=>$authors] );
     }
 
@@ -41,8 +40,6 @@ class AuthorController extends Controller
         $this->validate(request(), [
             'name' => 'required'
         ]);
-
-
         $author = new Author();
         $author->name = $request -> name;
         $author->save();

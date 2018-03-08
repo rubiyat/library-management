@@ -19,7 +19,7 @@ class CreateMembersTable extends Migration
             $table->text('address')->nullable();
             $table->string('phone_number',100);
             $table->string('email',100)->unique();
-            $table->boolean('gender')->default(0);;
+            $table->boolean('gender')->default(0);
             $table->date('date_of_birth');
             $table->date('membership_date');
             $table->float('membership_fees', 8, 2);

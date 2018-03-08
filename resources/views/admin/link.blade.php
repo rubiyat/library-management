@@ -26,6 +26,9 @@
     <!-- Custom Fonts -->
     <link href="{{ asset('/admin-resource/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
+
+    <link href="{{ asset('/admin-resource/dist/css/gijgo.min.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -71,7 +74,9 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ asset('/admin-resource/dist/js/sb-admin-2.js') }}"></script>
+<script src="{{ asset('/admin-resource/dist/js/gijgo.min.js') }}" type="text/javascript"></script>
 
+@yield('script')
 </body>
 
 </html>

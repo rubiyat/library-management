@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Member;
+use Carbon\Carbon;
 
 class MemberController extends Controller
 {
@@ -13,7 +15,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        $members = Member::paginate(10);
+        return view('admin.members.index', ['members'=>$members] );
     }
 
     /**
@@ -23,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.members.create');
     }
 
     /**
@@ -33,8 +36,19 @@ class MemberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $member = new Member();
+        $member->name = $request -> name;
+        $member->address = $request -> address;
+        $member->phone_number = $request -> phone_number;
+        $member->email = $request -> email;
+        $member->gender = $request -> gender;
+        $member->date_of_birth = $request -> date_of_birth;
+        $member->membership_date = Carbon::now();
+        $member->membership_fees = $request -> membership_fees;
+        $member->occupation = $request -> occupation;
+        $member->save();
+        return redirect(route('members.create')) -> with( 'message', 'Added Successfully');
     }
 
     /**
@@ -43,9 +57,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Member $member)
     {
-        //
+        return view('admin.members.show', ['member' => $member ]);
     }
 
     /**
@@ -54,9 +68,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Member $member)
     {
-        //
+        return view('admin.members.edit', ['member' => $member ]);
     }
 
     /**
@@ -66,9 +80,18 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Member $member)
     {
-        //
+        $member->name = $request -> name;
+        $member->address = $request -> address;
+        $member->phone_number = $request -> phone_number;
+        $member->email = $request -> email;
+        $member->gender = $request -> gender;
+        $member->date_of_birth = $request -> date_of_birth;
+        $member->membership_fees = $request -> membership_fees;
+        $member->occupation = $request -> occupation;
+        $member->update();
+        return redirect(route('members.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**
@@ -77,8 +100,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Member $member)
     {
-        //
+        $member->delete();
+        return redirect(route('members.index')) -> with( 'message', 'Deleted Successfully');
     }
 }
