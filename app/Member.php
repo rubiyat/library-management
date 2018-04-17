@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'address', 'phone_number', 'email', 'gender', 'date_of_birth', 'membership_date', 'membership_fees', 'occupation'
+    ];
 }
