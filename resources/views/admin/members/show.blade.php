@@ -26,8 +26,8 @@
                         <tr class="bg-danger">
                             <td width="50%" class="text-danger font-weight-bold"><h4><b>Member Details</b></h4></td>
                             <td class="text-right">
-                                <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
-                                <a class="btn btn-danger" href="{{ route('members.index') }}" data-toggle="tooltip" data-placement="bottom" title="Go To Index"><i class="glyphicon glyphicon-backward"></i> Go To Index</a>
+                                <a type="button" class="btn btn-primary" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
+                                <a class="btn btn-primary" href="{{ route('members.index') }}" data-toggle="tooltip" data-placement="bottom" title="Go To Index"><i class="glyphicon glyphicon-backward"></i> Go To Index</a>
                             </td>
                         </tr>
                         <tr class="bg-secondary">

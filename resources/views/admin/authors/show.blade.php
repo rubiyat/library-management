@@ -28,8 +28,8 @@
                         <tr class="bg-danger">
                             <td width="75%" class="text-danger font-weight-bold"><h4><b>Author Details</b></h4></td>
                             <td class="text-right">
-                                <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
-                                <a class="btn btn-danger" href="{{ route('authors.index') }}" data-toggle="tooltip" data-placement="bottom" title="Go To Index"><i class="glyphicon glyphicon-backward"></i> Go To Index</a>
+                                <a type="button" class="btn btn-primary" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
+                                <a class="btn btn-primary" href="{{ route('authors.index') }}" data-toggle="tooltip" data-placement="bottom" title="Go To Index"><i class="glyphicon glyphicon-backward"></i> Go To Index</a>
                             </td>
                         </tr>
                         <tr class="bg-secondary">
@@ -38,7 +38,9 @@
 
                         </tr>
                         <tr class="bg-secondary">
-                            <th></th>
+                            <th class="text-left">
+                                <span class="badge badge-success">active</span>
+                            </th>
                             <td class="text-right">
                                 <form method="POST" action="{{ route('authors.destroy', ['id' => $author->id]) }}">
                                     <a href="{{ route('authors.edit', ['id' => $author->id]) }}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Edit">
