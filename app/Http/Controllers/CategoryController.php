@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::paginate(10);
+        return view('admin.categories.index', ['categories'=>$categories] );
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate(request(), [
+        //     'name' => 'required'
+        // ]);
+
+        $category = new Category();
+        $category->name = $request -> name;
+        $category->is_active = $request -> is_active;
+        $category->save();
+        return redirect(route('categories.create')) -> with( 'message', 'Added Successfully');          
     }
 
     /**
@@ -46,7 +55,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('admin.categories.show', ['category' => $category ]);
     }
 
     /**
@@ -57,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', ['category' => $category ]);
     }
 
     /**
@@ -69,7 +78,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // $this->validate(request(), [
+        //     'name' => 'required'
+        // ]);
+        $category->name = $request -> name;
+        $category->is_active = $request -> is_active;
+        $category->update();
+        return redirect(route('categories.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**
@@ -80,6 +95,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect(route('categories.index')) -> with( 'message', 'Deleted Successfully');
     }
 }

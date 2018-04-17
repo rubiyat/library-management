@@ -25,6 +25,9 @@
             <li>
                 <a href="{{ route('members.index') }}"><i class="fa fa-user-plus"></i> Members</a>
             </li>
+            <li>
+                <a href="{{ route('categories.index') }}"><i class="fa fa-check-square"></i> Category</a>
+            </li>
             {{--<li>--}}
                 {{--<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>--}}
                 {{--<ul class="nav nav-second-level">--}}
