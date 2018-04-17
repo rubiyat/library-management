@@ -36,9 +36,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate(request(), [
-        //     'name' => 'required'
-        // ]);
+        $this->validate(request(), [
+            'name' => 'required'
+        ]);
 
         $category = new Category();
         $category->name = $request -> name;
@@ -78,9 +78,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        // $this->validate(request(), [
-        //     'name' => 'required'
-        // ]);
+        $this->validate(request(), [
+            'name' => 'required'
+        ]);
         $category->name = $request -> name;
         $category->is_active = $request -> is_active;
         $category->update();

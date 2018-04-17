@@ -42,7 +42,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Author Name </label>
-                                                <input type="text" name="name" class="form-control" value="{{ $author->name }}">
+                                                <input type="text" name="name" class="form-control" value="{{ $author->name }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
