@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Publisher extends Model
+class Book extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,15 +12,15 @@ class Publisher extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'address', 'phone_number', 'email'
+        'publisher_id', 'name', 'price', 'isbn', 'rack_no', 'image', 'is_active'
     ];
 
     /**
      *
-     * @return the all books from the publisher.
+     * @return the publisher
      */
-    public function books()
+    public function publisher()
     {
-    	return $this->hasMany(\App\Book::class);
+    	return $this->belongsTo(\App\Publisher::class);
     }
 }
