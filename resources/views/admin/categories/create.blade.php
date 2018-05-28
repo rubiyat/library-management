@@ -38,16 +38,16 @@
                                     <br/>
                                     <div class="container-fluid">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Category Name </label>
                                                 <input type="text" name="name" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group {{ $errors->has('is_active') ? ' has-error' : '' }}">
                                                 <label class="">Status</label>
                                                 <div class="radio">
-                                                    <label><input type="radio" name="is_active" value="1"/> Active</label>
+                                                    <label><input type="radio" name="is_active" value="1" checked /> Active</label>
                                                     <label><input type="radio" name="is_active" value="0"/> In-active</label>
                                                 </div>
                                             </div>

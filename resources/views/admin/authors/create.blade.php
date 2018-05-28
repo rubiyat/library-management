@@ -38,7 +38,7 @@
                                     <br/>
                                     <div class="container-fluid">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Author Name </label>
                                                 <input type="text" name="name" class="form-control" required>
                                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Publisher;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,7 +15,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::paginate(10);
+        return view('admin.books.index', ['books'=>$books] );
     }
 
     /**
@@ -24,7 +26,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $publishers = Publisher::all();
+        return view('admin.books.create')->with(compact('publishers'));
     }
 
     /**
@@ -34,8 +37,16 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {    
+        $this->validation($request);
+
+        $book = Book::create($request->all());
+        if($request->image){
+            $book->image = \App\helperClass::imageUpload($request, 'books');
+            $book->update();
+        }
+
+        return redirect(route('books.create')) -> with( 'message', 'Added Successfully');
     }
 
     /**
@@ -46,7 +57,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return view('admin.books.show', ['book' => $book ]);
     }
 
     /**
@@ -56,8 +67,9 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Book $book)
-    {
-        //
+    {        
+        $publishers = Publisher::all();
+        return view('admin.books.edit', ['book' => $book, 'publishers'=>$publishers ]);
     }
 
     /**
@@ -69,7 +81,15 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $this->validation($request);
+
+        $book->update($request->all());
+        if($request->image){
+            $book->image = \App\helperClass::imageUpload($request, 'books');
+            $book->update();
+        }
+        
+        return redirect(route('books.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**
@@ -80,6 +100,23 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect(route('books.index')) -> with( 'message', 'Deleted Successfully');
+    }
+
+    public function validation(Request $request)
+    {
+        $this->validate(request(), [
+            'publisher_id' => 'required|numeric',
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'isbn' => 'required|numeric',
+            'rack_no' => 'nullable|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_active' => 'required',
+        ]);
     }
 }
+
+
+
