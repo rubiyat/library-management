@@ -40,9 +40,10 @@ class AuthorBookController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate(request(), [
-        //     'name' => 'required'
-        // ]);
+        $this->validate(request(), [
+            'book_id' => 'required',
+            'author_id' => 'required'
+        ]);
 
         $authorBook = new AuthorBook();
         $authorBook->book_id = $request -> book_id;
@@ -84,6 +85,11 @@ class AuthorBookController extends Controller
      */
     public function update(Request $request, AuthorBook $authorBook)
     {
+        $this->validate(request(), [
+            'book_id' => 'required',
+            'author_id' => 'required'
+        ]);
+        
         $authorBook->book_id = $request->book_id;
         $authorBook->author_id = $request->author_id;
         $authorBook->update();

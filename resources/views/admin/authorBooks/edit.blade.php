@@ -42,7 +42,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group {{ $errors->has('book_id') ? ' has-error' : '' }}">
                                                 <label>Book</label>
-                                                <select class="form-control" name="book_id">
+                                                <select class="form-control" name="book_id" required>
                                                     @foreach($books as $book)
                                                     <option value="{{ $book->id }}" {{ $book->id == $authorBook->book_id ? "selected":"" }}>{{ $book->name }}</option>
                                                     @endforeach
@@ -53,7 +53,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group {{ $errors->has('author_id') ? ' has-error' : '' }}">
                                                 <label>Author</label>
-                                                <select class="form-control" name="author_id">
+                                                <select class="form-control" name="author_id" required>
                                                     @foreach($authors as $author)
                                                     <option value="{{ $author->id }}" {{ $author->id == $authorBook->author_id ? "selected":"" }}>{{ $author->name }}</option>
                                                     @endforeach
