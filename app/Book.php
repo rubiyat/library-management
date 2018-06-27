@@ -23,4 +23,5 @@ class Book extends Model
     {
     	return $this->belongsTo(\App\Publisher::class);
     }
+
 }

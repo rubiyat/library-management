@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\AuthorBook;
+use App\Book;
+use App\Author;
 use Illuminate\Http\Request;
 
 class AuthorBookController extends Controller
@@ -14,7 +16,8 @@ class AuthorBookController extends Controller
      */
     public function index()
     {
-        //
+        $authorBooks = AuthorBook::paginate(10);
+        return view('admin.authorBooks.index', ['authorBooks'=>$authorBooks] );
     }
 
     /**
@@ -24,7 +27,9 @@ class AuthorBookController extends Controller
      */
     public function create()
     {
-        //
+        $books = Book::orderBy('name')->get();
+        $authors = Author::orderBy('name')->get();
+        return view('admin.authorBooks.create')->with(compact('books', 'authors'));
     }
 
     /**
@@ -35,7 +40,15 @@ class AuthorBookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate(request(), [
+        //     'name' => 'required'
+        // ]);
+
+        $authorBook = new AuthorBook();
+        $authorBook->book_id = $request -> book_id;
+        $authorBook->author_id = $request -> author_id;
+        $authorBook->save();
+        return redirect(route('authorBooks.create')) -> with( 'message', 'Added Successfully');
     }
 
     /**
@@ -45,8 +58,8 @@ class AuthorBookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(AuthorBook $authorBook)
-    {
-        //
+    {        
+        return view('admin.authorBooks.show', ['authorBook' => $authorBook ]);
     }
 
     /**
@@ -57,7 +70,9 @@ class AuthorBookController extends Controller
      */
     public function edit(AuthorBook $authorBook)
     {
-        //
+        $books = Book::orderBy('name')->get();
+        $authors = Author::orderBy('name')->get();
+        return view('admin.authorBooks.edit', ['authorBook' => $authorBook ])->with(compact('books', 'authors'));        
     }
 
     /**
@@ -69,7 +84,10 @@ class AuthorBookController extends Controller
      */
     public function update(Request $request, AuthorBook $authorBook)
     {
-        //
+        $authorBook->book_id = $request->book_id;
+        $authorBook->author_id = $request->author_id;
+        $authorBook->update();
+        return redirect(route('authorBooks.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**
@@ -79,7 +97,8 @@ class AuthorBookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(AuthorBook $authorBook)
-    {
-        //
+    {        
+        $authorBook->delete();
+        return redirect(route('authorBooks.index')) -> with( 'message', 'Deleted Successfully');
     }
 }
