@@ -15,7 +15,7 @@ class CategoryTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         for($i = 1; $i <= 100; $i++){
             $category = new Category();
-            $category->name = $faker -> name;
+            $category->name = $faker->unique()->word;
             $category->is_active = rand ( 0 , 1 );
             $category->save();
             echo(' .');
