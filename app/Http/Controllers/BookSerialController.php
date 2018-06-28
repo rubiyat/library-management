@@ -99,6 +99,8 @@ class BookSerialController extends Controller
     public function validation(Request $request)
     {
         $this->validate(request(), [
+            'book_id' => 'required',
+            'serial_no' => 'required'
         ]);
     }
 }
