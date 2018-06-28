@@ -27,5 +27,6 @@ Route::resource('/admin/members', 'MemberController')->middleware('auth');
 Route::resource('/admin/categories', 'CategoryController')->middleware('auth');
 Route::resource('/admin/books', 'BookController')->middleware('auth');
 Route::resource('/admin/authorBooks', 'AuthorBookController')->middleware('auth');
+Route::resource('/admin/bookSerials', 'BookSerialController')->middleware('auth');
 
 Route::get('/admin', 'AuthorController@index')->name('admin')->middleware('auth');

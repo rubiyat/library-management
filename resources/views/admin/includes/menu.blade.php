@@ -19,6 +19,9 @@
             <li>
                 <a href="{{ route('authorBooks.index') }}"><i class="fa fa-book"></i> Author books</a>
             </li>
+            <li>
+                <a href="{{ route('bookSerials.index') }}"><i class="fa fa-book"></i> Book serials</a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

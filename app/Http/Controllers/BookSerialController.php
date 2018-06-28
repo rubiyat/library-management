@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BookSerial;
+use App\Book;
 use Illuminate\Http\Request;
 
 class BookSerialController extends Controller
@@ -14,7 +15,8 @@ class BookSerialController extends Controller
      */
     public function index()
     {
-        //
+        $bookSerials = BookSerial::paginate(10);
+        return view('admin.bookSerials.index')->with(compact('bookSerials'));
     }
 
     /**
@@ -24,7 +26,8 @@ class BookSerialController extends Controller
      */
     public function create()
     {
-        //
+        $books = Book::orderBy('name')->get();
+        return view('admin.bookSerials.create')->with(compact('books'));
     }
 
     /**
@@ -35,7 +38,11 @@ class BookSerialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validation($request);
+
+        $bookSerial = BookSerial::create($request->all());
+        
+        return redirect(route('bookSerials.create')) -> with( 'message', 'Added Successfully');
     }
 
     /**
@@ -46,7 +53,7 @@ class BookSerialController extends Controller
      */
     public function show(BookSerial $bookSerial)
     {
-        //
+        return view('admin.bookSerials.show', ['bookSerial' => $bookSerial ]);
     }
 
     /**
@@ -57,7 +64,8 @@ class BookSerialController extends Controller
      */
     public function edit(BookSerial $bookSerial)
     {
-        //
+        $books = Book::orderBy('name')->get();
+        return view('admin.bookSerials.edit', ['bookSerial' => $bookSerial, 'books'=>$books ]);
     }
 
     /**
@@ -69,7 +77,11 @@ class BookSerialController extends Controller
      */
     public function update(Request $request, BookSerial $bookSerial)
     {
-        //
+        $this->validation($request);
+
+        $bookSerial->update($request->all());
+        
+        return redirect(route('bookSerials.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**
@@ -80,6 +92,13 @@ class BookSerialController extends Controller
      */
     public function destroy(BookSerial $bookSerial)
     {
-        //
+        $bookSerial->delete();
+        return redirect(route('bookSerials.index')) -> with( 'message', 'Deleted Successfully');
+    }
+
+    public function validation(Request $request)
+    {
+        $this->validate(request(), [
+        ]);
     }
 }
