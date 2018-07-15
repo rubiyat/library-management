@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Borrow;
+use App\Member;
 use Illuminate\Http\Request;
 
 class BorrowController extends Controller
@@ -14,7 +15,8 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        //
+        $borrows = Borrow::paginate(10);
+        return view('admin.borrows.index')->with(compact('borrows'));
     }
 
     /**
@@ -24,7 +26,8 @@ class BorrowController extends Controller
      */
     public function create()
     {
-        //
+        $members = Member::all();
+        return view('admin.borrows.create')->with(compact('members'));
     }
 
     /**
@@ -35,7 +38,11 @@ class BorrowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validation($request);
+
+        $borrow = Borrow::create($request->all());
+        
+        return redirect(route('borrows.create')) -> with( 'message', 'Added Successfully');
     }
 
     /**
@@ -46,7 +53,7 @@ class BorrowController extends Controller
      */
     public function show(Borrow $borrow)
     {
-        //
+        return view('admin.borrows.show')->with(compact('borrow'));        
     }
 
     /**
@@ -57,7 +64,8 @@ class BorrowController extends Controller
      */
     public function edit(Borrow $borrow)
     {
-        //
+        $members = Member::all();
+        return view('admin.borrows.edit')->with(compact('borrow', 'members'));
     }
 
     /**
@@ -69,7 +77,11 @@ class BorrowController extends Controller
      */
     public function update(Request $request, Borrow $borrow)
     {
-        //
+        $this->validation($request);
+
+        $borrow->update($request->all());
+        
+        return redirect(route('borrows.index')) -> with( 'message', 'Updated Successfully');
     }
 
     /**
@@ -80,6 +92,15 @@ class BorrowController extends Controller
      */
     public function destroy(Borrow $borrow)
     {
-        //
+        $borrow->delete();
+        return redirect(route('borrows.index')) -> with( 'message', 'Deleted Successfully');
+    }
+
+    public function validation(Request $request)
+    {
+        // $this->validate(request(), [
+        //     'book_id' => 'required',
+        //     'serial_no' => 'required'
+        // ]);
     }
 }

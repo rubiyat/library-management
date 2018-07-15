@@ -1,0 +1,88 @@
+@extends('admin.master')
+
+@section('title')
+    Admin :: Home
+@endsection
+
+
+@section('path')
+    <div class="col-lg-12">
+        <h1 class="page-header">Create Borrow</h1>
+    </div>
+
+
+    <!-- /.col-lg-12 -->
+@endsection
+
+@section('content')
+
+
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @include('admin.includes.message')
+                    <br/>
+                    <table class="table table-bordered">
+                        <tr class="bg-danger">
+                            <td class="text-danger" width="75%"><h4><b>Add New Borrow</b></h4></td>
+                            <td class="text-right">
+                                <a class="btn btn-danger" href="{{ route('borrows.index') }}"><i class="glyphicon glyphicon-backward"></i> Cancel </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <form action="{{ route('borrows.index') }}" method="POST" class="form-horizontal">
+                                    {{ csrf_field() }}
+                                    <br/>
+                                    <div class="container-fluid">
+                                        <div class="col-md-12">
+                                            <div class="form-group {{ $errors->has('member_id') ? ' has-error' : '' }}">
+                                                <label>Member Name </label>
+                                                <select class="form-control " name="member_id">
+                                                    <option value="" disabled selected>Select one</option>
+                                                    @foreach($members as $member)
+                                                    <option value="{{ $member->id }}" {{ old('member_id')==$member->id ? "selected": ""  }}>{{ $member->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <br/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group {{ $errors->has('borrow_date') ? ' has-error' : '' }}">
+                                                <label>Borrow Date </label>
+                                                <input type="date" name="borrow_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <br/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group {{ $errors->has('borrow_return_date') ? ' has-error' : '' }}">
+                                                <label>Return Date </label>
+                                                <input type="date" name="borrow_return_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <br/>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-primary"><i class="glyphicon glyphicon-check"></i> Save </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                @include('admin.includes.errors')
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
