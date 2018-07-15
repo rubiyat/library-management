@@ -42,7 +42,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group {{ $errors->has('member_id') ? ' has-error' : '' }}">
                                                 <label>Member Name </label>
-                                                <select class="form-control " name="member_id">
+                                                <select class="form-control " name="member_id" required>
                                                     <option value="" disabled selected>Select one</option>
                                                     @foreach($members as $member)
                                                     <option value="{{ $member->id }}" {{ old('member_id')==$member->id ? "selected": $borrow->member_id==$member->id ? "selected" : ""  }}>{{ $member->name }}</option>

@@ -98,9 +98,10 @@ class BorrowController extends Controller
 
     public function validation(Request $request)
     {
-        // $this->validate(request(), [
-        //     'book_id' => 'required',
-        //     'serial_no' => 'required'
-        // ]);
+        $this->validate(request(), [
+            'member_id' => 'required',
+            'borrow_date' => 'required',
+            'borrow_return_date' => 'required'
+        ]);
     }
 }
