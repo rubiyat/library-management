@@ -43,7 +43,7 @@ class AuthorController extends Controller
         $author = new Author();
         $author->name = $request -> name;
         $author->save();
-        return redirect(route('authors.create')) -> with( 'message', 'Added Successfully');
+        return redirect(route('authors.create')) -> with(['message'=>'Added Successfully', 'type'=>'success']);
     }
 
     /**
