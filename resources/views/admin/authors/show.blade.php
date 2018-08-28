@@ -7,7 +7,6 @@
 
 @section('path')
     <div class="col-lg-12">
-        <h1 class="page-header">Author Details</h1>
     </div>
 
 

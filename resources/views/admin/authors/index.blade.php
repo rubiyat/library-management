@@ -4,10 +4,24 @@
     Admin :: Home
 @endsection
 
+@section('css')
+    <style type="text/css">
+        .dt-buttons .dt-button {
+            padding: 5px 15px;
+            border-radius: .25rem;
+            background: #fb9678;
+            color: #fff;
+            margin-right: 3px;
+        }
+        .dt-buttons .dt-button:hover {
+            background: #343a40;
+        }
+    </style>
+@endsection
+
 
 @section('path')
     <div class="col-lg-12">
-        <h1 class="page-header">Authors</h1>
     </div>
 
 
@@ -24,22 +38,25 @@
                 <div class="panel-body">
                     @include('admin.includes.message')
                     <br/>
-                    <table class="table table-bordered">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+
+                        <thead>
                         <tr class="bg-danger">
                             <td class="text-danger"><h4><b>Authors</b></h4></td>
-                            <td width="50%"></td>
+                            <td width="75%"></td>
                             <td class="text-right">
-                                <a type="button" class="btn btn-info" style="margin-left: 5px;"><i class="glyphicon glyphicon-print"> </i> </a>
                                 <a class="btn btn-primary" href="{{ route('authors.create') }}" data-toggle="tooltip" data-placement="bottom" title="Add New"><i class="glyphicon glyphicon-plus"></i> Add New Author</a>
                             </td>
                         </tr>
-                        <tr class="bg-primary">
-                            <th>#</th>
-                            <th>Author Name</th>
-                            <th>Action</th>
-                        </tr>
+                            <tr class="bg-primary">
+                                <th>#</th>
+                                <th>Author Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        @php($i=($authors->currentPage()-1)*10 + 1 )
+                        @php($i= 1 )
                         @foreach($authors as $author)
                             <tr class="bg-secondary">
                                 <th>{{ $i++ }}</th>
@@ -65,11 +82,33 @@
                                 </td>
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
-                    <div class="text-center">{{ $authors->links() }}</div>
                     @include('admin.includes.errors')
                 </div>
             </div>
         </div>
     </div>
+
+    @section('script')
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true,
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
+    </script>
+    @endsection
 @endsection

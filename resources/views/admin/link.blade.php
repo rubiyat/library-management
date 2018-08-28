@@ -29,13 +29,19 @@
 
     <link href="{{ asset('/admin-resource/dist/css/gijgo.min.css') }}" rel="stylesheet" type="text/css" />
 
+    <!-- DataTables CSS -->
+    <link href="{{ asset('/admin-resource/vendor/datatables-plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="{{ asset('/admin-resource/vendor/datatables-responsive/dataTables.responsive.css') }}" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    @yield('css')
 </head>
 
 <body>
@@ -72,9 +78,15 @@
 <script src="{{ asset('/admin-resource/vendor/morrisjs/morris.min.js') }}"></script>
 <script src="{{ asset('/admin-resource/data/morris-data.js') }}"></script>
 
+<!-- DataTables JavaScript -->
+<script src="{{ asset('/admin-resource/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/admin-resource/vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('/admin-resource/vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
+
 <!-- Custom Theme JavaScript -->
 <script src="{{ asset('/admin-resource/dist/js/sb-admin-2.js') }}"></script>
 <script src="{{ asset('/admin-resource/dist/js/gijgo.min.js') }}" type="text/javascript"></script>
+
 
 @yield('script')
 </body>

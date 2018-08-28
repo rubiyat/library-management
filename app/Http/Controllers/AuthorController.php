@@ -14,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::paginate(10);
+        $authors = Author::all();
         return view('admin.authors.index', ['authors'=>$authors] );
     }
 
