@@ -24,7 +24,7 @@ class CreateBooksTable extends Migration
             $table->boolean('is_active')->default(1);
             $table->timestamps();
 
-            $table->foreign('publisher_id')->references('id')->on('publishers');
+            $table->foreign('publisher_id')->references('id')->on('publishers')->onDelete('cascade');
         });
     }
 

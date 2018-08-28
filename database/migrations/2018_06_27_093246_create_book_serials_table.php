@@ -20,7 +20,7 @@ class CreateBookSerialsTable extends Migration
             $table->boolean('is_active')->default(1);
             $table->timestamps();
 
-            $table->foreign('book_id')->references('id')->on('books');            
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');            
         });
     }
     /**

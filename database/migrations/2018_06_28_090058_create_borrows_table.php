@@ -20,7 +20,7 @@ class CreateBorrowsTable extends Migration
             $table->date('borrow_return_date');
             $table->timestamps();
 
-            $table->foreign('member_id')->references('id')->on('members');            
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');            
         });
     }
     
